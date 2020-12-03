@@ -1,0 +1,42 @@
+<p>news works! {{ title }} - {{ student }}</p>
+<p>学生信息：{{ userInfo.username }} - {{ userInfo.age }}</p>
+<p [title]="message">绑定属性，鼠标hover</p>
+<p>简单运算：1+2={{ 1+2 }}</p>
+
+<div [innerHTML] = "content"></div>
+
+<p>渲染数组列表</p>
+<ul>
+    <li *ngFor="let item of list;let key=index">{{ key + '-' + item }}</li>
+</ul>
+
+<p>引入图片</p>
+<img src="assets/images/cat.jpeg" alt="cat">
+<img [src]="imgUrl" alt="protrait">
+
+<p>判断*ngIf</p>
+<p *ngIf="flag">flag为true</p>
+
+<p>*ngSwitch</p>
+<div [ngSwitch]="status">
+    <span *ngSwitchCase="1">正常</span>
+    <span *ngSwitchCase="0">删除</span>
+    <span *ngSwitchDefault>默认</span>
+</div>
+
+<hr>
+<p [ngClass]="{'red': flag, 'orange': !flag}">[ngClass]展示</p>
+<p [ngStyle]="{color: 'orange'}">[ngStyle]展示</p>
+
+<hr>
+<p>管道</p>
+<p>时间戳 -> 日期： {{ today | date: 'yyyy-MM-dd HH:mm:ss' }}</p>
+
+<button (click)="run()">执行事件</button>
+<button (click)="getMsg()">执行方法，获取数据</button>
+<button (click)="set()">执行方法，设置数据</button>
+
+<hr>
+<p>数据双向绑定</p>
+<input type="text" [(ngModel)]="keywords"> <button (click)="changeText()">改变文本框中的值</button>
+<p>{{ keywords }}</p>

@@ -1,0 +1,38 @@
+<p>search works!</p>
+
+<div class="search-container">
+    <div class="search-content-wrap">
+        <header class="header">
+            <span class="title">ToDoList</span>
+            <input type="text" placeholder="回车添加ToDo" [(ngModel)]="item" (keyup)="addItem($event)">
+        </header>
+        <button (click)="clearStorage()">清除storage</button>
+        <section class="content-wrap">
+            <div class="todo-wrap">
+                <h3>正在进行</h3>
+                <ul class="list" *ngIf="todoList.length > 0">
+                    <li *ngFor="let item of todoList">
+                        <input type="checkbox" (change)="addToDone(item)">
+                        <span class="text">{{ item }}</span>
+                        <i class="icon"></i>
+                    </li>
+                </ul>
+                <p *ngIf="todoList.length === 0">暂无数据</p>
+            </div>
+
+            <div class="done-wrap">
+                <h3>已经完成</h3>
+                <ul class="list" *ngIf="doneList.length > 0">
+                    <li *ngFor="let item of doneList">
+                        <input type="checkbox" checked (change)="removeFromDone(item)">
+                        <span class="text">{{ item }}</span>
+                        <i class="icon"></i>
+                    </li>
+                </ul>
+                <p *ngIf="doneList.length === 0">暂无数据</p>
+            </div>
+
+            <p class="copyright">Copyright @ 2020yyy.cn</p>
+        </section>
+    </div>
+</div>
