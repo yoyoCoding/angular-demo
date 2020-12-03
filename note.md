@@ -90,7 +90,7 @@ angular-demo
 **管道**  
 用于过滤数据，比如时间戳转为日期格式 `{{ today | date: 'yyyy-MM-dd HH:mm:ss' }}` 
 
->自定义管道？
+>Q：自定义管道？
 
 **绑定事件**  
 语法：`<button (click)="run($event)">执行事件</button>`
